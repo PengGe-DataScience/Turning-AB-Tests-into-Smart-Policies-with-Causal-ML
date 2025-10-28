@@ -1,0 +1,1 @@
+max_samples: 0.45, min_balancedness_tol: 0.3, min_samples_leaf: 30, max_depth: 7, min_var_fraction_leaf: 0.01, n_estimators: 100
