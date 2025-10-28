@@ -38,7 +38,7 @@ Plus SHAP-based interpretability.
 
 ---
 
-## Running Order (main branch)
+## Running Order
 - **`simulate_data_generalized.ipynb`** → Based on `src/simulate_data.py`; creates synthetic train/test and notes how to generalize to other A/B tests.  
 - **`overall_treatment_effects.ipynb`** → Estimates overall (train+test) ATE, standard error, and 95% CI.  
 - **`cml_training_generalized.ipynb`** → Based on `src/cml_training.py`; tunes/trains a Causal Forest with guidance on hyperparameters and extensions.  
@@ -50,7 +50,8 @@ Plus SHAP-based interpretability.
 ## Installation
 ```bash
 python -m venv .venv
-# Windows: .venv\Scripts\activate
+# Windows: 
+.venv\Scripts\activate
 # macOS/Linux:
 source .venv/bin/activate
 
@@ -67,12 +68,6 @@ pip install -r requirements.txt
 3. **Train CATE model**: Run `cml_training_generalized.ipynb` (saves `model/causal_forest_dml_model.pkl`).
 4. **Evaluate policy**: Run `python cml_evaluation.py` → outputs `plots/gate_plot.pdf` and `plots/ips_plot.pdf`.
 5. **Interpretability**: Run `shap_surrogate_explain.ipynb` for SHAP bar/beeswarm plots explaining predicted CATEs.
-
-**Notes**
-- Use **pre-treatment** features only (available at decision time).
-- Load models with `joblib.load`, not `pandas.read_pickle`.
-- Ensure `plots/` exists before saving figures.
-- `src/cml_evaluation.py` and root-level `cml_evaluation.py` are the **same** script.
 
 ---
 
